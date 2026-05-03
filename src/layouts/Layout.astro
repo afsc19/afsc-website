@@ -1,23 +1,84 @@
+---
+import '../styles/global.css';
+import AsciiBackground from '../components/AsciiBackground.astro';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>André Cadete</title>
 	</head>
-	<body>
-		<slot />
+	<body class="bg-gray-950 text-gray-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+		<AsciiBackground />
+		<nav class="fixed w-full top-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
+			<div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+				<a href="#" class="text-xl font-bold tracking-tight text-white hover:text-indigo-400 transition-colors">AFSC</a>
+				
+				<!-- desktop menu -->
+				<div class="hidden md:flex gap-6 text-sm font-medium">
+					<a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+					<a href="#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a>
+					<a href="#writeups" class="text-gray-300 hover:text-white transition-colors">Writeups</a>
+					<a href="#ctf" class="text-gray-300 hover:text-white transition-colors">CTF</a>
+					<a href="https://cv.andrecadete.com/" class="text-gray-300 hover:text-white transition-colors">CV</a>
+				</div>
+
+				<!-- mobile menu button -->
+				<button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-1" aria-label="Toggle Menu">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+				</button>
+			</div>
+
+			<!-- mobile menu dropdown -->
+			<div id="mobile-menu" class="hidden md:hidden bg-gray-950/95 backdrop-blur-xl border-t border-gray-800 absolute w-full left-0">
+				<div class="flex flex-col px-6 py-6 gap-6 text-base font-medium shadow-2xl">
+					<a href="#about" class="mobile-link text-gray-300 hover:text-white transition-colors">About</a>
+					<a href="#projects" class="mobile-link text-gray-300 hover:text-white transition-colors">Projects</a>
+					<a href="#writeups" class="mobile-link text-gray-300 hover:text-white transition-colors">Writeups</a>
+					<a href="#ctf" class="mobile-link text-gray-300 hover:text-white transition-colors">CTF</a>
+					<a href="https://cv.andrecadete.com/" target="_blank" class="mobile-link text-gray-300 hover:text-white transition-colors">CV</a>
+				</div>
+			</div>
+		</nav>
+		<main class="min-h-screen pt-20">
+			<slot />
+		</main>
+
+		<!-- Script to Handle Mobile Menu Toggle -->
+		<script>
+			const btn = document.getElementById('mobile-menu-btn');
+			const menu = document.getElementById('mobile-menu');
+			const iconPath = document.getElementById('menu-icon-path');
+			const mobileLinks = document.querySelectorAll('.mobile-link');
+
+			let isOpen = false;
+
+			function toggleMenu() {
+				isOpen = !isOpen;
+				if (isOpen) {
+					menu.classList.remove('hidden');
+					iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Change to X icon
+				} else {
+					menu.classList.add('hidden');
+					iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Change to Hamburger icon
+				}
+			}
+
+			if (btn) btn.addEventListener('click', toggleMenu);
+			
+			// Close menu when clicking a link
+			mobileLinks.forEach(link => {
+				link.addEventListener('click', () => {
+					if (isOpen) toggleMenu();
+				});
+			});
+		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

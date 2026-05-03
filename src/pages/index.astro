@@ -1,11 +1,132 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+    <section id="about" class="min-h-[80vh] flex flex-col justify-center items-center px-6 relative mt-16">
+		<!-- avatar -->
+        <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            <img src="/me.jpg" alt="André Cadete" class="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-gray-900 bg-gray-900 overflow-hidden" />
+        </div>
+        
+        <h1 class="mt-8 text-4xl md:text-6xl font-extrabold tracking-tight text-center">
+            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">André Cadete</span>
+        </h1>
+		<h3 class="mt-8 text-2xl md:text-3xl text-gray-400 font-bold tracking-tight text-center">
+			BSc in Computer Science and Engineering @ IST
+        <p class="mt-4 text-base md:text-lg text-gray-400 max-w-2xl text-center">
+            Security enthusiast, CTF player @ STT, Red-teamer @ Er3bUs, and developer.<br>Scroll down to see my projects and writeups.
+        </p>
+
+		<!-- social -->
+        <div class="mt-8 flex items-center justify-center gap-6">
+            <!-- github -->
+            <a href="https://github.com/afsc19" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+            </a>
+            <!-- linkedin -->
+            <a href="https://linkedin.com/in/andre-cadete" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="LinkedIn">
+                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+            </a>
+            <!-- discord -->
+            <a href="" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Discord">
+                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 25 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" /></svg>
+            </a>
+            <!-- email -->
+            <a href="mailto:me@andrecadete.com" class="text-gray-400 hover:text-indigo-400 transition-colors" aria-label="Email">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </a>
+        </div>
+
+		<!-- cv & ctf tracking -->
+        <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-6">
+			<a href="https://cv.andrecadete.com/" target="_blank" class="w-full sm:w-auto px-8 py-3 rounded-xl bg-indigo-600/90 hover:bg-indigo-500 text-white font-semibold transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_25px_rgba(79,70,229,0.5)] flex justify-center items-center gap-2 border border-indigo-400/20">
+                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                Download CV
+            </a>
+            <a href="https://ctf.andrecadete.com/" target="_blank" class="w-full sm:w-auto px-8 py-3 rounded-xl bg-purple-600/90 hover:bg-purple-500 text-white font-semibold transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(147,51,234,0.5)] flex justify-center items-center gap-2 border border-purple-400/20">
+                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Play CTF
+            </a>
+		</div>
+    </section>
+
+    <section id="projects" class="py-24 max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+            <span class="w-8 h-[2px] bg-indigo-500"></span>
+            Projects
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- template
+            <div class="group border border-gray-800 rounded-2xl bg-gray-900/50 p-6 hover:border-indigo-500/50 transition-colors">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-400 transition-colors">Titulo</h3>
+                <p class="text-gray-400 text-sm mb-4">Uma descricao ya</p>
+                <div class="flex gap-2">
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">linguagem</span>
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">tag</span>
+                </div>
+            </div>
+			-->
+			<div class="group border border-gray-800 rounded-2xl bg-gray-900/50 p-6 hover:border-indigo-500/50 transition-colors">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-400 transition-colors">AzSat</h3>
+                <p class="text-gray-400 text-sm mb-4">I co-developed a can-sized satellite module for the CanSat 24 competition.<br>My contributions included working with Arduinos (C++), developing a Java app, a React-based web app, and real-time telemetry between the module and the website.<br>Our team was awarded the Ground Station award from ESERO and the Antenna award from ANACOM.</p>
+                <div class="flex gap-2 mb-4">
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">arduino</span>
+					<span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">ground-station</span>
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">java</span>
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">react</span>
+                </div>
+                <a href="https://azsat-2024.web.app/" class="mt-4 md:mt-0 text-indigo-400 hover:text-indigo-300 text-sm font-medium">Visit Website →</a>
+            </div>
+            <div class="group border border-gray-800 rounded-2xl bg-gray-900/50 p-6 hover:border-indigo-500/50 transition-colors">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-400 transition-colors">CTF Platform</h3>
+                <p class="text-gray-400 text-sm mb-4">A kubernetes-based CTF platform to host challenges made by myself, aswell as challenges either made by myself or by my colleagues for weekly meetings @ STT.</p>
+                <div class="flex gap-2 mb-4">
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">kubernetes</span>
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">security</span>
+                </div>
+                <a href="https://ctf.andrecadete.com/" class="mt-4 md:mt-0 text-indigo-400 hover:text-indigo-300 text-sm font-medium">Play CTF →</a>
+            </div>
+			<div class="group border border-gray-800 rounded-2xl bg-gray-900/50 p-6 hover:border-indigo-500/50 transition-colors">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-400 transition-colors">AE ESAQ (Discontinued)</h3>
+                <p class="text-gray-400 text-sm mb-4">A website and mobile app for my former school's Student Association (AE), featuring chats, polls, wordclouds and a calendar-based schedule viewer.</p>
+                <div class="flex gap-2 mb-4">
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">react</span>
+					<span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">java</span>
+                </div>
+                <a href="https://aeesaq.eu/" class="mt-4 md:mt-0 text-indigo-400 hover:text-indigo-300 text-sm font-medium">Visit Website →</a>
+            </div>
+			<div class="group border border-gray-800 rounded-2xl bg-gray-900/50 p-6 hover:border-indigo-500/50 transition-colors">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-400 transition-colors">Hotspot Toolbox (Discontinued)</h3>
+                <p class="text-gray-400 text-sm mb-4">An Android app with automation features to make network sharing easier. Featuring a scheduler and a limiter, you can control when and who uses your hotspot using constraints.</p>
+                <div class="flex gap-2 mb-4">
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">react</span>
+					<span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">java</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.afsc.hotspottoolbox" class="mt-4 md:mt-0 text-indigo-400 hover:text-indigo-300 text-sm font-medium">Visit Google Play Store →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="writeups" class="py-24 max-w-5xl mx-auto px-6 border-t border-gray-800/50">
+        <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+            <span class="w-8 h-[2px] bg-purple-500"></span>
+            CTF Writeups
+        </h2>
+        <div class="grid grid-cols-1 gap-6">
+			<!-- template
+            <div class="border border-gray-800 rounded-2xl bg-gray-900/50 p-6 flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-200">AFSC CTF</h3>
+                    <p class="text-gray-400 text-sm mt-1">Hello steganography.</p>
+                </div>
+                <div class="flex gap-2">
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">categoria</span>
+                </div>
+                <a href="#writeups" class="mt-4 md:mt-0 text-indigo-400 hover:text-indigo-300 text-sm font-medium">Read Writeup →</a>
+            </div>
+			-->
+        </div>
+    </section>
 </Layout>
