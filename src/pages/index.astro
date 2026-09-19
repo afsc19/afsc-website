@@ -15,7 +15,8 @@ import Layout from '../layouts/Layout.astro';
         </h1>
 		<h3 class="mt-8 text-2xl md:text-3xl text-gray-400 font-bold tracking-tight text-center">
 			BSc in Computer Science and Engineering @ IST
-        <p class="mt-4 text-base md:text-lg text-gray-400 max-w-2xl text-center">
+        </h3>
+        <p class="mt-4 text-base md:text-lg text-gray-400 max-w-3xl text-center">
             Security enthusiast, CTF player @ STT, Red-teamer @ Er3bUs, and developer.<br>Scroll down to see my projects and writeups.
         </p>
 
@@ -108,6 +109,55 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
     </section>
+
+    <section id="portfolio" class="py-24 max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+            <span class="w-8 h-[2px] bg-indigo-500"></span>
+            Portfolio
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- template
+            <div class="group border border-gray-800 rounded-2xl bg-gray-900/50 p-6 hover:border-indigo-500/50 transition-colors">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-400 transition-colors">Titulo</h3>
+                <p class="text-gray-400 text-sm mb-4">Uma descricao ya</p>
+                <div class="flex gap-2">
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">linguagem</span>
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">tag</span>
+                </div>
+            </div>
+			-->
+			<div class="group border border-gray-800 rounded-2xl bg-gray-900/50 p-6 hover:border-indigo-500/50 transition-colors">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-400 transition-colors">NixOS Configuration</h3>
+                <p class="text-gray-400 text-sm mb-4">A declarative, multi-arch system configuration managing my personal laptops and servers. Features a modular structure, Agenix-based secret management, and specialized profiles for development, gaming, and forensic security tools.</p>
+                <div class="flex gap-2 mb-4">
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">nix</span>
+					<span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">devops</span>
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">automation</span>
+                </div>
+                <a href="https://github.com/afsc19/nixos-config" class="mt-4 md:mt-0 text-indigo-400 hover:text-indigo-300 text-sm font-medium">Visit Repo →</a>
+            </div>
+			<div class="group border border-gray-800 rounded-2xl bg-gray-900/50 p-6 hover:border-indigo-500/50 transition-colors">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-400 transition-colors">Email Resender</h3>
+                <p class="text-gray-400 text-sm mb-4">A serverless Cloudflare Worker that acts as a secure email proxy. It allows sending emails from custom domains using personal clients, featuring custom routing commands to manage sender aliases and recipients programmatically.</p>
+                <div class="flex gap-2 mb-4">
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">cloudflare</span>
+					<span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">serverless</span>
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">api</span>
+                </div>
+                <a href="https://github.com/afsc19/email-resender" class="mt-4 md:mt-0 text-indigo-400 hover:text-indigo-300 text-sm font-medium">Visit Repo →</a>
+            </div>
+			<div class="group border border-gray-800 rounded-2xl bg-gray-900/50 p-6 hover:border-indigo-500/50 transition-colors">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-indigo-400 transition-colors">Academic Archive</h3>
+                <p class="text-gray-400 text-sm mb-4">A curated repository of projects developed during my Computer Science & Engineering degree at IST. Covers core foundations, from Algorithms and Data Structures to Operating Systems and Distributed Systems.</p>
+                <div class="flex gap-2 mb-4">
+                    <span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">cs</span>
+					<span class="px-2 py-1 text-xs rounded-md bg-gray-800/80 text-gray-300">ist</span>
+                </div>
+                <a href="https://github.com/afsc19/ist-leic-a" class="mt-4 md:mt-0 text-indigo-400 hover:text-indigo-300 text-sm font-medium">Visit Repo →</a>
+            </div>
+        </div>
+    </section>
+
 
     <section id="writeups" class="py-24 max-w-5xl mx-auto px-6 border-t border-gray-800/50">
         <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
