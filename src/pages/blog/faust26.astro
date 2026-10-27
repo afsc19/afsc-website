@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout>
-    <section id="projects" class="py-24 max-w-5xl mx-auto px-6">
+    <section id="projects" class="py-24 max-w-5xl mx-auto px-6 text-white text-sm mb-4">
         <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
             Soloing an Attack-Defense CTF - FAUST CTF 2026
         </h2>
@@ -50,7 +50,7 @@ import Layout from '../../layouts/Layout.astro';
         <br>
         I couldn't test Ataka (the tool I used for attacking), so I was 100% trusting the default templates, which turned out not to work and needed a quick fix that I only discovered beforehand.
         <br>
-        Around 15 minutes into the pre-game hour I started digging into Alf and managed to find interesting behaviour in Alf. I tested many of my intuitions and, after about 5 failed attempts, at 47-48 minutes into the pre-game hour I proved the first (and simple) vulnerability.
+        Around 15 minutes into the pre-game hour I started digging into Alf and managed to find interesting behaviour in it. I tested many of my intuitions and, after about 5 failed attempts, at 47-48 minutes into the pre-game hour I proved the first (and simple) vulnerability.
         <br>
         I rushed to write the exploit using the template I mentioned previously, but I didn't think to account for the flag IDs, which indicate where each tick's flags are stored by the organization.
         <br>
@@ -63,13 +63,98 @@ import Layout from '../../layouts/Layout.astro';
         The results were impressive for the IMC service! The AI had built 2 exploits, and they were ready to deploy, according to it.
         <br>
         I couldn't say the same for the other services, though. The AI was still struggling to find any vulnerabilities at all.
+        <br>
+        Since the game network was still closed, I pushed some small "just in case" patches I had made for Alf and the proposed ones from the AIs and managed to successfully keep the services healthy.
         
         <br><br>
 
-        In construction...
+        Then, once the game network was on, and after troubleshooting and fixing some Ataka problems, I finally deployed the AI's IMC exploit at 13:10:48, tick 5.
+        <br>
+        The tick after deploying it got 706 flags from that single exploit, out of [N] teams. IMC was a clear win for the AI.
+        <br>
+        Beyond that, the results were underwhelming: The second IMC exploit never worked, and further prompting only refined the first one, without any success.
+
+        <br><br>
+
+        While I was trying to deploy the IMC exploits, I rushed to understand the flag ID locations and adapt my exploit for Alf.
+        <br>
+        At 13:17:40, I deployed the first version of my Alf exploit. It averaged 47 flags per tick, a result I was proud of, since I had speedcoded it myself.
+
+        <br><br>
+        
+        The rest of the competition went as follows. I went through the terminals running AI on each challenge, deployed the exploits they produced, perfected my initial one and looked for more vulnerabilities in Alf.
+    </p>
+    <ul class="list-disc pl-6 text-white text-sm mb-4">
+        <li>
+            The AI didn't find any other vulnerabilities in IMC.
+        </li>
+        <li>
+            Rufflecopter only had a proper working exploit at 16:39:17, and it performed really well from then on, averaging 44 flags per tick.
+        </li>
+        <li>
+            AI performed worst on Lamp. Without hitting a single flag, I got the impression it had little understanding of the topic (a LaTeX-rendered web app).
+        </li>
+        <li>
+            After perfecting my exploit and peeking at pkappa, I only found a new vulnerability for Alf at around 16:50 and only deployed it at 17:29:59. It was harder to script than most exploits, since it required a creafted tar with a hardlink to the victim's flag file, embedded in Typst.
+        </li>
+    </ul>
+
+    <p class="text-white text-sm mb-4">
+        The infrastructure performed pretty well, more than enough for the challenge.
+        <br>
+        <a class="text-indigo-400 hover:text-indigo-300" href="https://hetzner.com/">Hetzner</a> sponsored FAUST with a $20 coupon, and I'm grateful for it.
+        I used it to buy two CCX23 Cloud Servers (dedicated x86 VPSs with 4 AMD vCPUs, 16GB of RAM, and 160GB of NVMe storage). Their performance was well above what I needed for both the attacker machine and the vulbox. Without the coupon, I would have played another AD with weaker machines.
+
+        <br><br>
+
+        
+        <!-- <img src="/blog/faust26/scoreboard_rank.png" alt="AFSC team during " class="relative object-cover my-2 border-gray-900 bg-gray-900 overflow-hidden" /> -->
+
+        <img src="/blog/faust26/scoreboard_big.png" alt="Scoreboard with my team on 26th place" class="relative object-cover my-4 border-gray-900 bg-gray-900 overflow-hidden rounded-md" />
+        
+        I finished in 26th, which was a pretty good victory for me, considernig my main goal was to keep the services healthy and possibly build an exploit. Making it to the top 100 would already have been a good outcome.
+        <br><br>
+        Happy with my results, I went to eat dinner, since I was starving after locking in for 9 hours straight.
+        <br>
+        When I came back, I exported all the logs, captures and databases from the servers and then deleted them. I also wrote an Ansible playbook to automate that.
+
+        <br><br>
+
+        Despite being a good run for a solo player, it wasn't perfect, and I expected that:
+    </p>
+    <ul class="list-disc pl-6 text-white text-sm mb-4">
+        <li>
+            The templated Grafana deployment had issues that I only fixed mid-competition, when I was losing faith finding more Alf exploits.
+        </li>
+        <li>
+            The Ataka template produced errors because of deprecations in the latest Python version.
+        </li>
+        <li>
+            I had asked the AI to write a scoreboard parser for Grafana based on last year's format and their website's information, but it didn't work out of the box.
+        </li>
+        <li>
+            I realized the my team ID on the scoreboard wasn't the same as my IP in the game network. I had misread the guidelines, which made me attack myself and lose some flags.
+        </li>
+        <li>
+            I realized I should've written an AGENTS.md and prepared the folders structure before the competition, so the AIs wouldn't need so much guidance on following the template or submitting flags.
+        </li>
+    </ul>
+    <p>
+        To this day I still feel a little guilty for bringing AI into this CTF. CTFs like this one are meant to make space for developing and testing real problem-solving skills and focused learning, and I don’t think they’re the right place for experimenting.
+        <br>
+        Allow me to quote the organizers: "However, we believe that the educational aspects and the fun of solving CTF challenges are impacted if challenges are solved with only minimal human interaction. Please keep your own fun in mind when deciding how you use llms during the competition.".
+        <br>
+        I've had my fun, for sure, but I feel like I took some of it away from the teams that played on the Low-LLM bracket, which wasn't well separated from the main one.
+
+        <br><br>
+
+        I really enjoy building infrastructure and solving problems under time pressure.
+    </p>
+
+        
         
 
-        </p>
         
+
     </section>
 </Layout>
